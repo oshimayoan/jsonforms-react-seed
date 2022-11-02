@@ -1,51 +1,54 @@
-import { Fragment, useState, useMemo } from 'react';
-import { JsonForms } from '@jsonforms/react';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import logo from './logo.svg';
-import './App.css';
-import schema from './schema.json';
-import uischema from './uischema.json';
+import { Fragment, useState, useMemo } from "react";
+import { JsonForms } from "@jsonforms/react";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import logo from "./logo.svg";
+import "./App.css";
+import schema from "./schema.json";
+import uischema from "./uischema.json";
+import schema2 from "./schema2.json";
+import uischema2 from "./uischema2.json";
 import {
   materialCells,
   materialRenderers,
-} from '@jsonforms/material-renderers';
-import RatingControl from './RatingControl';
-import ratingControlTester from './ratingControlTester';
-import { makeStyles } from '@mui/styles';
+} from "@jsonforms/material-renderers";
+import RatingControl from "./RatingControl";
+import ratingControlTester from "./ratingControlTester";
+import { makeStyles } from "@mui/styles";
+import { vanillaCells, vanillaRenderers } from "@jsonforms/vanilla-renderers";
 
 const useStyles = makeStyles({
   container: {
-    padding: '1em',
-    width: '100%',
+    padding: "1em",
+    width: "100%",
   },
   title: {
-    textAlign: 'center',
-    padding: '0.25em',
+    textAlign: "center",
+    padding: "0.25em",
   },
   dataContent: {
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '0.25em',
-    backgroundColor: '#cecece',
-    marginBottom: '1rem',
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "0.25em",
+    backgroundColor: "#cecece",
+    marginBottom: "1rem",
   },
   resetButton: {
-    margin: 'auto !important',
-    display: 'block !important',
+    margin: "auto !important",
+    display: "block !important",
   },
   demoform: {
-    margin: 'auto',
-    padding: '1rem',
+    margin: "auto",
+    padding: "1rem",
   },
 });
 
 const initialData = {
-  name: 'Send email to Adrian',
-  description: 'Confirm if you have passed the subject\nHereby ...',
+  name: "Send email to Adrian",
+  description: "Confirm if you have passed the subject\nHereby ...",
   done: true,
-  recurrence: 'Daily',
+  recurrence: "Daily",
   rating: 3,
 };
 
@@ -66,47 +69,47 @@ const App = () => {
 
   return (
     <Fragment>
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>Welcome to JSON Forms with React</h1>
-          <p className='App-intro'>More Forms. Less Code.</p>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to JSON Forms with React</h1>
+          <p className="App-intro">More Forms. Less Code.</p>
         </header>
       </div>
 
       <Grid
         container
-        justifyContent={'center'}
+        justifyContent={"center"}
         spacing={1}
         className={classes.container}
       >
         <Grid item sm={6}>
-          <Typography variant={'h4'} className={classes.title}>
+          <Typography variant={"h4"} className={classes.title}>
             Bound data
           </Typography>
           <div className={classes.dataContent}>
-            <pre id='boundData'>{stringifiedData}</pre>
+            <pre id="boundData">{stringifiedData}</pre>
           </div>
           <Button
             className={classes.resetButton}
             onClick={clearData}
-            color='primary'
-            variant='contained'
+            color="primary"
+            variant="contained"
           >
             Clear data
           </Button>
         </Grid>
         <Grid item sm={6}>
-          <Typography variant={'h4'} className={classes.title}>
+          <Typography variant={"h4"} className={classes.title}>
             Rendered form
           </Typography>
           <div className={classes.demoform}>
             <JsonForms
-              schema={schema}
-              uischema={uischema}
+              schema={schema2}
+              uischema={uischema2}
               data={data}
-              renderers={renderers}
-              cells={materialCells}
+              renderers={vanillaRenderers}
+              cells={vanillaCells}
               onChange={({ errors, data }) => setData(data)}
             />
           </div>

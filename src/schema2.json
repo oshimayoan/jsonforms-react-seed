@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "discountPercentage": {
+            "type": "integer"
+          },
+          "recommended": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "finalPrice": {
+            "type": "integer"
+          },
+          "basePrice": {
+            "type": "integer"
+          },
+          "buyBaseUrl": {
+            "type": "string"
+          },
+          "backgroundUrl": {
+            "type": "string"
+          },
+          "benefits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
